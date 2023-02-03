@@ -1,0 +1,239 @@
+.app__navbar {
+  width: 100%;
+  height: 82px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.app__navbar-logolink {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app__navbar-logolink_logo {
+  flex: 1;
+}
+
+.app__navbar-logolink_logo img {
+  object-fit: contain;
+  width: 147px;
+  height: 67px;
+  background: var(--color-black);
+}
+
+.app__navbar-logolink_links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 3rem;
+}
+
+.app__navbar-logolink_links li {
+  margin: 0 1rem;
+  transition: 0.5s ease;
+}
+
+.app__navbar-logolink_links li:hover {
+  color: var(--color-gray);
+}
+
+.app__navbar-search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app__navbar-search svg,
+.app__navbar-search p {
+  margin: 0 1rem;
+  cursor: pointer;
+}
+
+.app__navbar-search svg:last-child {
+  margin-left: 0.5rem;
+}
+
+.app__navbar-search img {
+  object-fit: contain;
+  width: 32px;
+  height: 32px;
+  margin-left: 1rem;
+}
+
+.app__navbar-smallscreen {
+  display: none;
+}
+
+.app__navbar-smallscreen svg:first-child {
+  margin: 0 0.5rem;
+}
+
+.app__navbar-smallscreen svg:hover {
+  cursor: pointer;
+}
+
+.app__navbar-smallscreen_overlay {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: var(--color-black);
+  transition: 0.5s ease;
+  z-index: 5;
+}
+
+.app__navbar-smallscreen_overlay .crossmark {
+  position: absolute;
+  cursor: pointer;
+  top: 20px;
+  right: 25px;
+}
+
+.app__navbar-smallscreen_links {
+  list-style: none;
+}
+
+.app__navbar-smallscreen_links li {
+  margin: 2rem;
+  cursor: pointer;
+  font-size: 2rem;
+  font-family: var(--font-base);
+  text-align: center;
+}
+
+.app__navbar-smallscreen_links li:hover {
+  color: var(--color-gray);
+}
+
+.app__navbar-logolink_dropdown {
+  position: relative;
+  display: none;
+  margin-right: 1rem;
+}
+
+.app__navbar-logolink_dropdown p:first-child:hover {
+  cursor: pointer;
+  color: var(--color-gray);
+  transition: 0.5s ease;
+}
+.app__navbar-logolink_dropdown p:first-child svg {
+  margin-left: 0.25rem;
+}
+
+.app__navbar-logolink_dropdown-links {
+  margin-top: 0.8rem;
+  position: absolute;
+  left: 0;
+  top: 60%;
+  z-index: 10;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  list-style: none;
+  padding: 8px;
+  animation: fade-in-out 500ms ease-in-out;
+}
+
+.app__navbar-logolink_dropdown-links li {
+  margin-bottom: 10px;
+}
+
+.app__navbar-logolink_dropdown-links li:hover {
+  cursor: pointer;
+}
+
+.app__navbar-logolink_dropdown-links li img {
+  height: 28px;
+  width: 28px;
+  object-fit: contain;
+  margin-right: 0.4rem;
+}
+
+.p__opensans.logout {
+  transition: 500ms ease-in-out;
+}
+
+.p__opensans.logout:hover {
+  color: var(--color-gray);
+}
+
+.button__logout {
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 7px 7px;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  transition: 400ms ease-in-out;
+}
+
+.button__logout:hover {
+  cursor: pointer;
+  background-color: var(--color-gray);
+  box-shadow: 0 0 5px 0 var(--color-gray);
+  color: var(--color-black);
+}
+
+.button__logout.smallscreen{
+  font-size: normal;
+  font-weight: normal;
+  padding: 3px 3px;
+}
+
+@keyframes fade-in-out {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 2000px) {
+  .app__navbar-logolink_logo img {
+    width: 160px;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .app__navbar-logolink_links {
+    display: none;
+  }
+  .app__navbar-logolink_dropdown {
+    display: flex;
+  }
+  .app__navbar-smallscreen {
+    display: flex;
+  }
+  .app__navbar-search {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .app__navbar {
+    height: 80px;
+    padding: 1rem 1.5rem;
+  }
+
+  .app__navbar-logolink_logo img {
+    width: 100px;
+    height: 55px;
+  }
+
+  .app__navbar-smallscreen_links li {
+    margin: 1.5rem;
+    font-size: 1.5rem;
+  }
+
+  .app__navbar-search {
+    display: none;
+  }
+}

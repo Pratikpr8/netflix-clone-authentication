@@ -1,24 +1,77 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import { Home } from "./component";
+import { Routes, Route} from "react-router-dom";
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
+import ResetPassword from "./pages/ResetPassword";
+import { auth } from "./Utils/firebase";
+import ProtectedRoute from "./pages/ProtectedRoute";
+
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut,
+  sendPasswordResetEmail,
+} from "firebase/auth";
+
+export const netflixAuthContext = React.createContext();
 
 function App() {
+  const [user, setUser] = useState("");
+  const netflixAuthValue = {
+    handleSignUp,
+    handleSignIn,
+    handleLogOut,
+    user,
+    handlePasswordReset,
+  };
+
+  function handleSignUp(email, password) {
+    return createUserWithEmailAndPassword(auth, email, password);
+  }
+
+  function handleSignIn(email, password) {
+    return signInWithEmailAndPassword(auth, email, password);
+  }
+
+  function handleLogOut() {
+    return signOut(auth);
+  }
+
+  function handlePasswordReset(email) {
+    return sendPasswordResetEmail(auth, email);
+  }
+
+  useEffect(() => {
+    const listenUser = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+
+    return () => {
+      listenUser();
+    };
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <netflixAuthContext.Provider value={netflixAuthValue}>
+        <Routes>
+          <Route path="/" element={<SignIn />} />
+          <Route path="/sign-up" element={<SignUp />} />
+          <Route path="reset-pswd" element={<ResetPassword />} />
+          <Route
+            path="/home"
+            element={
+              <ProtectedRoute>
+                <Home />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+      </netflixAuthContext.Provider>
+    </>
   );
 }
 

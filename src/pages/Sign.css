@@ -1,0 +1,167 @@
+.app__login {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.app__login-gradient {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.4);
+  background-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 0,
+    rgba(0, 0, 0, 0) 60%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+}
+
+.app__login img:first-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.app__netflix-logo {
+  z-index: 2;
+  position: absolute;
+  width: 110px;
+  height: 68px;
+  top: 15px;
+  left: 30px;
+}
+
+.app__login-content {
+  z-index: 1;
+  border-radius: 5px;
+  max-width: 400px;
+  max-height: 600px;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 50px;
+  color: white;
+}
+
+.app__login-content_form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.app__login-content_form input,
+.app__login-content_form button {
+  width: 100%;
+  padding: 13px 15px;
+  margin-bottom: 0.8rem;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  background: rgba(51, 51, 51);
+  color: #a4abad;
+  font-size: 18px;
+}
+
+.app__login-content_form input::placeholder {
+  font-size: 14px;
+  color: #84898b;
+}
+
+.app__login-content_form input[type="password"] {
+  margin-bottom: 1.8rem;
+}
+
+.app__login-content_form button {
+  background: hsl(358, 80%, 51%);
+  color: var(--color-white);
+  margin-bottom: 1.5rem;
+}
+.app__login-content_form button:hover {
+  cursor: pointer;
+  background: hsl(358, 80%, 41%);
+}
+
+.app__login-content p span {
+  color: var(--color-white);
+  text-transform: none;
+}
+
+.app__login-content p span:hover {
+  cursor: pointer;
+}
+
+.p__opensans.error {
+  color: hsl(358, 80%, 50%);
+  font-size: 14px;
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.p__opensans.forgot-pswd:hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1150px) {
+  /* .app__login-content {
+    width: 300px;
+    height: 350px;
+    padding: 40px;
+  } */
+
+  .app__login-content_form input,
+  .app__login-content_form button {
+    padding: 11px 13px;
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .app__login img:first-child {
+    display: none;
+  }
+
+  .app__netflix-logo {
+    z-index: 2;
+    width: 90px;
+    height: 50px;
+    left: 15px;
+  }
+
+  .app__login-content {
+    max-width: 350px;
+    max-height: 500px;
+    padding: 40px;
+  }
+
+  .app__login-content_form input,
+  .app__login-content_form button {
+    width: 100%;
+    padding: 9px 12px;
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .app__login-content {
+    max-width: 300px;
+    max-height: 450px;
+    padding: 30px;
+  }
+  .app__login-content_form input,
+  .app__login-content_form button {
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+}
