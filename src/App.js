@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import { Home } from "./component";
-import { Routes, Route} from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import ResetPassword from "./pages/ResetPassword";
@@ -58,11 +58,11 @@ function App() {
     <>
       <netflixAuthContext.Provider value={netflixAuthValue}>
         <Routes>
-          <Route path="/" element={<SignIn />} />
-          <Route path="/sign-up" element={<SignUp />} />
-          <Route path="reset-pswd" element={<ResetPassword />} />
+          <Route path="/netflix-clone-authentication/" exact element={<SignIn />} />
+          <Route path="/netflix-clone-authentication/sign-up" element={<SignUp />} />
+          <Route path="/netflix-clone-authentication/reset-pswd" element={<ResetPassword />} />
           <Route
-            path="/home"
+            path="/netflix-clone-authentication/home"
             element={
               <ProtectedRoute>
                 <Home />

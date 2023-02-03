@@ -22,7 +22,7 @@ export default function Navbar() {
   const handleLoggingOut = async () => {
     try {
       await handleLogOut();
-      Navigate("/");
+      Navigate("/netflix-clone-authentication/");
     } catch (err) {
       console.log(err.message);
     }

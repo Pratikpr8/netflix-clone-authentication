@@ -3,7 +3,6 @@ import "./Sign.css";
 import { images } from "../constants";
 import { Link, useNavigate } from "react-router-dom";
 import { netflixAuthContext } from "../App";
-import { auth } from "../Utils/firebase";
 
 function ResetPassword() {
   const [email, setEmail] = useState("");
@@ -17,7 +16,7 @@ function ResetPassword() {
     setError("");
     try {
       await handlePasswordReset(email);
-      Navigate("/");
+      Navigate("/netflix-clone-authentication/");
     } catch (err) {
       setError(err.message);
       console.log(err.message);
@@ -63,7 +62,7 @@ function ResetPassword() {
           className="p__opensans"
           style={{ color: "var(--color-white)", fontSize: "16px" }}
         >
-          <Link to="/">Cancel Reset</Link>
+          <Link to="/netflix-clone-authentication/">Cancel Reset</Link>
         </p>
       </div>
     </div>

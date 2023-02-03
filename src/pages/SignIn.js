@@ -17,7 +17,7 @@ function SignIn() {
     e.preventDefault();
     try {
       await handleSignIn(email, password);
-      Navigate("/home");
+      Navigate("/netflix-clone-authentication/home");
     } catch (err) {
       setError(err.message);
       console.log(err.message);
@@ -73,7 +73,7 @@ function SignIn() {
         >
           New to Netflix?
           <span>
-            <Link to="/sign-up"> Sign up now</Link>
+            <Link to="/netflix-clone-authentication/sign-up"> Sign up now</Link>
           </span>
         </p>
         <p
@@ -84,7 +84,7 @@ function SignIn() {
             marginTop: "0.5rem",
           }}
         >
-          <Link to="/reset-pswd">Forgot Password?</Link>
+          <Link to="/netflix-clone-authentication/reset-pswd">Forgot Password?</Link>
         </p>
       </div>
     </div>
