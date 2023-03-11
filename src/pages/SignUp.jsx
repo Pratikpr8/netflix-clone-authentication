@@ -16,6 +16,7 @@ function SignUp() {
     setError("");
     try {
       await handleSignUp(email, password);
+      console.log("sigining up");
       Navigate("/netflix-clone-authentication/");
     } catch (err) {
       setError(err.message);

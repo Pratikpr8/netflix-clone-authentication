@@ -4,4 +4,4 @@ import Home from "./Home/Home";
 import Footer from "./Footer/Footer";
 import MoviePic from "./MoviePic/MoviePic";
 
-export {Home, MoviePic, Navbar, MovieRow, Footer };
+export { Home, MoviePic, Navbar, MovieRow, Footer };

@@ -70,7 +70,7 @@
 }
 
 .app__navbar-smallscreen svg:first-child {
-  margin: 0 0.5rem;
+  margin: 0 0.7rem;
 }
 
 .app__navbar-smallscreen svg:hover {
@@ -123,7 +123,7 @@
   transition: 0.5s ease;
 }
 .app__navbar-logolink_dropdown p:first-child svg {
-  margin-left: 0.25rem;
+  margin-left: 0.15rem;
 }
 
 .app__navbar-logolink_dropdown-links {
@@ -181,7 +181,7 @@
   color: var(--color-black);
 }
 
-.button__logout.smallscreen{
+.button__logout.smallscreen {
   font-size: normal;
   font-weight: normal;
   padding: 3px 3px;

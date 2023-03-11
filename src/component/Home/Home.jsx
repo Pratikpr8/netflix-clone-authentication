@@ -1,7 +1,7 @@
 import React from "react";
 
 import Navbar from "../Navbar/Navbar";
-import MovieRow from "../MovieRow/MovieRow";
+import MovieRow from "../../component/MovieRow/MovieRow";
 import request from "../../Request/request";
 import Footer from "../Footer/Footer";
 import MoviePic from "../MoviePic/MoviePic";

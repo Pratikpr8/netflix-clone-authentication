@@ -16,6 +16,7 @@ function ResetPassword() {
     setError("");
     try {
       await handlePasswordReset(email);
+      console.log("resetting password");
       Navigate("/netflix-clone-authentication/");
     } catch (err) {
       setError(err.message);

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { basicImgUrlPath } from "../../constants/urlconstants";
 import axios from "../../Request/axios";
+
 import { AiOutlineRight } from "react-icons/ai";
 import { AiOutlineLeft } from "react-icons/ai";
 
@@ -24,6 +25,7 @@ export default function MovieRow({
     const getApiData = async () => {
       const res = await axios.get(fetchURL);
       setMovies(res.data.results);
+      console.log(res.data.results);
       setIsLoading(false);
     };
     getApiData();
@@ -49,17 +51,25 @@ export default function MovieRow({
             <div className="app__movierow-imageslist">
               {movies.map((movie) => {
                 return (
-                  <img
-                    onClick={() => console.log("clicked")}
-                    className={`app__movierow-image ${
-                      isLargeRow && "large__image"
+                  <div
+                    className={`app__movierow-movies ${
+                      isLargeRow && "large__row"
                     }`}
                     key={movie.id}
-                    src={`${basicImgUrlPath}${
-                      isLargeRow ? movie.poster_path : movie.backdrop_path
-                    }`}
-                    alt="movie img"
-                  />
+                  >
+                    <img
+                      className={`app__movierow-image ${
+                        isLargeRow && "large__image"
+                      }`}
+                      src={`${basicImgUrlPath}${
+                        isLargeRow ? movie.poster_path : movie.backdrop_path
+                      }`}
+                      alt="movie img"
+                    />
+                    <div className="app__movierow-overlay">
+                      <p>{movie.title || movie.name}</p>
+                    </div>
+                  </div>
                 );
               })}
             </div>
@@ -72,7 +82,6 @@ export default function MovieRow({
                 onClick={() => scroll(-400)}
               />
             )}
-
             <AiOutlineRight
               color="#FFF"
               fontSize={32}

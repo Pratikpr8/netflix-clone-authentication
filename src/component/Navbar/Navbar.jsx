@@ -22,6 +22,7 @@ export default function Navbar() {
   const handleLoggingOut = async () => {
     try {
       await handleLogOut();
+      console.log("logging out");
       Navigate("/netflix-clone-authentication/");
     } catch (err) {
       console.log(err.message);
@@ -50,7 +51,7 @@ export default function Navbar() {
               }}
             >
               Browse
-              <BsFillCaretDownFill color="#FFF" fontSize={16} />
+              <BsFillCaretDownFill color="#FFF" fontSize={14} />
             </p>
 
             {toggleBrowse && (
@@ -112,7 +113,7 @@ export default function Navbar() {
 
         <div className="app__navbar-smallscreen">
           <div className="app__navbar-smallscreen-svg flex__center">
-            <BsSearch color="#FFF" fontSize={18} />
+            <BsSearch color="#FFF" fontSize={16} />
             <GiHamburgerMenu
               color="#FFF"
               fontSize={24}

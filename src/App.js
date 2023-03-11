@@ -19,7 +19,8 @@ import {
 export const netflixAuthContext = React.createContext();
 
 function App() {
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState({});
+
   const netflixAuthValue = {
     handleSignUp,
     handleSignIn,
@@ -58,9 +59,20 @@ function App() {
     <>
       <netflixAuthContext.Provider value={netflixAuthValue}>
         <Routes>
-          <Route path="/netflix-clone-authentication/" exact element={<SignIn />} />
-          <Route path="/netflix-clone-authentication/sign-up" element={<SignUp />} />
-          <Route path="/netflix-clone-authentication/reset-pswd" element={<ResetPassword />} />
+          <Route
+            path="/netflix-clone-authentication/"
+            exact
+            element={<SignIn />}
+          />
+
+          <Route
+            path="/netflix-clone-authentication/sign-up"
+            element={<SignUp />}
+          />
+          <Route
+            path="/netflix-clone-authentication/reset-pswd"
+            element={<ResetPassword />}
+          />
           <Route
             path="/netflix-clone-authentication/home"
             element={
