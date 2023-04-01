@@ -185,6 +185,7 @@
   font-size: normal;
   font-weight: normal;
   padding: 3px 3px;
+  margin-right: 5px;
 }
 
 @keyframes fade-in-out {
@@ -235,5 +236,8 @@
 
   .app__navbar-search {
     display: none;
+  }
+  .button__logout.smallscreen {
+    font-size: 14px;
   }
 }

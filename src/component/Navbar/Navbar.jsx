@@ -7,6 +7,7 @@ import { AiOutlineGift } from "react-icons/ai";
 import { IoMdNotifications } from "react-icons/io";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { GiCrossMark } from "react-icons/gi";
+import { RxCross2 } from "react-icons/rx";
 import { BsFillCaretDownFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import { netflixAuthContext } from "../../App";
@@ -38,21 +39,39 @@ export default function Navbar() {
           </div>
 
           <div className="app__navbar-logolink_dropdown">
-            <p
-              onClick={() =>
-                setToggleBrowse((prevToggleBrowse) => !prevToggleBrowse)
-              }
-              className="p__opensans"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "flex-end",
-                marginLeft: "0.8rem",
-              }}
-            >
-              Browse
-              <BsFillCaretDownFill color="#FFF" fontSize={14} />
-            </p>
+            {!toggleBrowse ? (
+              <p
+                onClick={() =>
+                  setToggleBrowse((prevToggleBrowse) => !prevToggleBrowse)
+                }
+                className="p__opensans"
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "flex-end",
+                  marginLeft: "0.8rem",
+                }}
+              >
+                Browse
+                <BsFillCaretDownFill color="#FFF" fontSize={14} />
+              </p>
+            ) : (
+              <p
+                onClick={() =>
+                  setToggleBrowse((prevToggleBrowse) => !prevToggleBrowse)
+                }
+                className="p__opensans"
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "flex-end",
+                  marginLeft: "0.8rem",
+                }}
+              >
+                Cancel
+                <RxCross2 color="#FFF" fontSize={16} />
+              </p>
+            )}
 
             {toggleBrowse && (
               <ul className="app__navbar-logolink_dropdown-links">
@@ -67,14 +86,6 @@ export default function Navbar() {
                     CHILD
                   </p>
                 </li>
-                <li>
-                  <button
-                    onClick={handleLoggingOut}
-                    className="button__logout smallscreen"
-                  >
-                    Log out
-                  </button>
-                </li>
               </ul>
             )}
           </div>
@@ -84,9 +95,6 @@ export default function Navbar() {
               <a href="#home" style={{ fontWeight: "900" }}>
                 Home Page
               </a>
-            </li>
-            <li className="p__opensans">
-              <a href="#arrays">Arrays</a>
             </li>
             <li className="p__opensans">
               <a href="#movies">Movies</a>
@@ -105,7 +113,6 @@ export default function Navbar() {
           <p className="p__opensans">CHILD</p>
           <AiOutlineGift color="#FFF" fontSize={27} />
           <IoMdNotifications color="#FFF" fontSize={27} />
-          {/* <p className="p__opensans logout">Log out</p> */}
           <button onClick={handleLoggingOut} className="button__logout">
             Log out
           </button>
@@ -113,7 +120,13 @@ export default function Navbar() {
 
         <div className="app__navbar-smallscreen">
           <div className="app__navbar-smallscreen-svg flex__center">
-            <BsSearch color="#FFF" fontSize={16} />
+            <button
+              onClick={handleLoggingOut}
+              className="button__logout smallscreen"
+            >
+              Log out
+            </button>
+            {/* <BsSearch color="#FFF" fontSize={16} /> */}
             <GiHamburgerMenu
               color="#FFF"
               fontSize={24}
@@ -134,9 +147,6 @@ export default function Navbar() {
                   <a href="#home" style={{ fontWeight: "900" }}>
                     Home Page
                   </a>
-                </li>
-                <li className="p__opensans">
-                  <a href="#arrays">Arrays</a>
                 </li>
                 <li className="p__opensans">
                   <a href="#movies">Movies</a>
